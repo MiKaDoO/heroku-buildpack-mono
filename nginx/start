@@ -30,6 +30,8 @@ touch /app/nginx/logs/access.log /app/nginx/logs/error.log
 (
     #We expect nginx to run in foreground
     #We also expect a socket to be at /tmp/nginx.socket
+    sleep 1
+    chmod 777 /tmp/nginx.socket
     /app/nginx/nginx -p /app/nginx -c /app/nginx/nginx.conf
     echo 'nginx' >$psmgr
 ) &
